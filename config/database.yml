@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: maqalaat_production
-  username: maqalaat
-  password: <%= ENV["MAQALAAT_DATABASE_PASSWORD"] %>
+  # username: maqalaat
+  # password: <%= ENV["MAQALAAT_DATABASE_PASSWORD"] %>
