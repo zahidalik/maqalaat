@@ -75,6 +75,7 @@ group :test do
 end
 
 gem 'friendly_id', '~> 5.4.0'
+gem 'simple_form'
 
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
