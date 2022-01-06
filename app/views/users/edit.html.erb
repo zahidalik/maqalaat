@@ -1,9 +1,9 @@
-<% provide(:title, "Register") %>
-<% provide(:button_text, "Register me") %>
+<% provide(:title, "Edit #{@user.name}") %>
+<% provide(:button_text, "Save changes") %>
 
 <div class="min-h-screen flex flex-col justify-center items-center">
   <div class="bg-gray-50 px-6 py-4 rounded-xl flex flex-col justify-center items-center space-y-7">
-    <div class="text-3xl font-extralight">Register</div>
+    <div class="text-3xl font-extralight">Edit</div>
     <%= render "form", user: @user%>
   </div>
 </div>

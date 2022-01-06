@@ -6,24 +6,41 @@
     <%= link_to about_path, class: "hidden md:block text-gray-50 hover:border-b-2 hover:border-gray-50" do %>
       About
     <% end %>
-    <%= link_to contact_us_path, class: "hidden md:block text-gray-50 hover:border-b-2 hover:border-gray-50" do %>
-      Contact us
+    <%= link_to "#", class: "hidden md:block text-gray-50 hover:border-b-2 hover:border-gray-50" do %>
+      Thinkers
+    <% end %>
+    <%= link_to "#", class: "hidden md:block text-gray-50 hover:border-b-2 hover:border-gray-50" do %>
+      Thoughts
     <% end %>
   </div>
-  <div class="flex justify-center items-center space-x-1">
-    <%= link_to new_user_url, class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded-lg text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
-      Register
-    <% end %>
-    <%= link_to signin_path, class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded-lg text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
-      Sign in
-    <% end %>
-  </div>
+  <% if logged_in? %>
+    <div class="flex justify-center items-center space-x-1">
+      <%= link_to user_path(current_user), class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded-lg text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
+        <%= current_user.name.truncate(8) %>
+      <% end %>
+      <%= button_to signout_path , class: "px-1 md:px-2 md:py-1 bg-red-500 rounded text-sm md:text-base text-gray-50 hover:bg-red-900", method: :delete do %>
+        Sign out
+      <% end %>
+    </div>
+  <% else %>
+    <div class="flex justify-center items-center space-x-1">
+      <%= link_to new_user_url, class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded-lg text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
+        Register
+      <% end %>
+      <%= link_to signin_path, class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded-lg text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
+        Sign in
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="block md:hidden w-full h-8 bg-blue-500 flex justify-center items-center space-x-4">
   <%= link_to about_path, class: "text-gray-50 text-sm font-light hover:border-b-2 hover:border-gray-50" do %>
     About
   <% end %>
-  <%= link_to contact_us_path, class: "text-gray-50 text-sm font-light hover:border-b-2 hover:border-gray-50" do %>
-    Contact us
+  <%= link_to "#", class: "text-gray-50 text-sm font-light hover:border-b-2 hover:border-gray-50" do %>
+    Thinkers
+  <% end %>
+  <%= link_to "#", class: "text-gray-50 text-sm font-light hover:border-b-2 hover:border-gray-50" do %>
+    Thoughts
   <% end %>
 </div>

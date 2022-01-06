@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "about", to: "home#about"
   get "contact-us", to: "home#contact_us"
   get "signin", to: "sessions#new"
-  post "signin", to: "sessions#sign_in"
+  post "signin", to: "sessions#create"
+  delete "signout", to: "sessions#destroy"
   resources :users
 end

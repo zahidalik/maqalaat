@@ -1,10 +1,24 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:edit, :update]
   def index
     @users = User.all
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      flash[:notice] = "Edited successfully"
+      redirect_to user_path(@user)
+    else
+      flash.now[:alert] = "Something went wrong"
+      render :edit, status: :bad_request
+    end
   end
 
   def new
@@ -13,12 +27,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    respond_to do |format|
-      if @user.save
+    if @user.save
+      log_in(@user)
+      respond_to do |format|
         format.html { redirect_to @user, notice: "Registration done successfully!" }
-      else
-        format.html { render :new, status: :bad_request }
       end
+    else
+      flash.now[:alert] = "Registration failed!"
+      render :new, status: :bad_request
     end
   end
 

@@ -1,3 +1,5 @@
+<% provide(:title, "Home") %>
+
 <div class="min-h-screen flex flex-col justify-around items-center">
   <div class="mb-16 md:grid md:grid-cols-2 md:gap-7">
     <div class="flex flex-col justify-center items-center">
@@ -31,7 +33,7 @@
         <h2 class="text-sm">Friendship</h2>
       </div>
       <div class="w-5/6 lg:w-full px-4 py-2 bg-blue-500 text-gray-50 rounded-lg shadow-xl flex justify-center items-center">
-        Share your thought
+        <%= link_to "Share your thought", logged_in? ? user_path(current_user) : signin_url %>
       </div>
     </div>
   </div>

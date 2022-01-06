@@ -1,3 +1,23 @@
+<% provide(:title, "Sign in") %>
+
 <div class="min-h-screen flex flex-col justify-center items-center">
-  You are here
+  <div class="bg-gray-50 py-6 rounded-xl flex flex-col justify-center items-center space-y-7">
+    <div class="text-3xl font-extralight">Sign in</div>
+    <%= simple_form_for(:session, url: signin_path, 
+      html: { class: "bg-gray-50 px-6 rounded-xl flex flex-col items-start space-y-7"},
+      defaults: {label_html: { class: "md:text-lg font-light text-gray-800" },
+      input_html: { class: "block md:inline-block md:ml-4 px-1 md:px-2 md:py-1 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300" },
+      error_html: { class: "pl-2 block text-sm text-red-500"},
+      hint_html: { class: "pl-2 block text-sm text-gray-400"} }) do |f| %>
+      <%= f.input :email, placeholder: "example@example.com" %>
+      <%= f.input :password, required: true %>
+      <%= f.submit "Sign in", class: "w-full text-white px-2 py-1 bg-blue-700 shadow-xl rounded-lg hover:bg-blue-800" %>
+    <% end %>
+    <div>
+      <span class="text-gray-600">New user?</span>
+      <%= link_to new_user_path, class:"text-white px-2 py-1 bg-green-700 shadow-xl rounded-lg hover:bg-green-800" do %>
+        Register
+      <% end %>
+    </div>
+  </div>
 </div>
