@@ -81,3 +81,15 @@ gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
+# add more functionalities for capistrano
+gem 'capistrano-rails-collection'
+
+# cap production rails:rake:log:clear
+# cap production rails:rake:tmp:clear
+# cap production rails:rake:db:drop
+# cap production rails:rake:db:reset
+# cap production rails:rake:db:setup
+# cap production rails:rake:db:seed
+# cap production rails:rake:db:migrate
+# cap production rails:rake:db:rollback

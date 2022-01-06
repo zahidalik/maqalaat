@@ -41,5 +41,8 @@ require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/rbenv'
 
+# increase functionality for capistrano
+require 'capistrano/rails/collection'
+
 set :rbenv_type, :user
 set :rbenv_ruby, '3.0.3'
