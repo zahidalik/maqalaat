@@ -3,9 +3,12 @@
 <div class="min-h-screen">
   <div class="pt-4 md:pt-6 flex flex-col md:flex-row justify-center items-center md:space-x-3 md:space-y-0 space-y-2">
     <div class="px-2 py-1 bg-slate-200 text-gray-500 rounded-lg shadow-xl shadow-xl">
-      <%= @user.name %>
+      <%= @user.username %>
     </div>
     <% if current_user == @user %>
+      <div class="px-2 py-1 bg-slate-200 text-gray-500 rounded-lg shadow-xl shadow-xl">
+        <%= @user.name %>
+      </div>
       <div class="px-2 py-1 bg-slate-200 text-gray-500 rounded-lg shadow-xl shadow-xl">
         <%= @user.email %>
       </div>

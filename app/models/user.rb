@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
+  validates :username, presence: true, uniqueness: true, length: { minimum: 4 }
 
   extend FriendlyId
   friendly_id :name, use: :slugged
