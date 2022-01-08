@@ -5,11 +5,11 @@ class User < ApplicationRecord
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
-  validates :username, presence: true, uniqueness: true, length: { minimum: 4 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
 
   extend FriendlyId
   friendly_id :name, use: :slugged
   
+  has_many :thoughts
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_blank: true
 end

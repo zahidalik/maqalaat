@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:edit, :update]
+
   def index
     @users = User.all
   end
 
   def show
+    @user_thoughts = @user.thoughts.order(:created_at)
   end
 
   def edit
@@ -45,6 +47,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :name, :email, :nationality, :qualifications, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :nationality, :qualifications, :password, :password_confirmation)
   end
 end

@@ -1,0 +1,6 @@
+<%= turbo_frame_tag(dom_id(thought)) do %>
+  <%= link_to user_thought_path(thought.user, thought), data: {"turbo_frame": "_top"}, class: "bg-gray-800 opacity-75 text-gray-50 px-2 py-1 rounded-tr-lg rounded-br-lg border-2 border-t-0 border-teal-300 hover:bg-gray-700" do %>
+    <%= thought.title %>
+  <% end %>
+  <%= link_to thought.user.name.truncate(10), user_path(thought.user), class: "text-sm text-white bg-blue-600 px-1" %>
+<% end %>

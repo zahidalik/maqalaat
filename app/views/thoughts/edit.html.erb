@@ -1,0 +1,9 @@
+<% provide(:title, "Edit Thought") %>
+<% provide(:button_text, "Edit my thought") %>
+
+<div class="min-h-screen flex flex-col justify-start items-center">
+  <div class="mt-8 bg-gray-50 py-3 md:px-6 md:py-4 rounded-xl flex flex-col justify-center items-center space-y-7">  
+    <div class="text-xl md:text-3xl font-extralight">Edit my thought</div>
+    <%= render "form", user: @user, thought: @thought%>
+  </div>
+</div>

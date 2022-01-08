@@ -11,28 +11,14 @@
       </div>
     </div>
     <div class="max-w-96 h-auto mt-8 md:mt-0 flex flex-col justify-center items-center space-y-4">
-      <h1 class="text-sm md:text-xl text-gray-50 font-light shadow-xl">Latest Articles</h1>
-      <div class="w-5/6 lg:w-full px-4 py-2 bg-slate-200 text-gray-500 rounded-lg shadow-xl flex justify-start items-baseline space-x-3">
-        <h1 class="text-sm font-bold">Zahid Khan</h1>
-        <h2 class="text-sm">How a programmer should think?</h2>
+      <h1 class="text-sm md:text-xl text-gray-50 font-light shadow-xl">Latest Thoughts</h1>
+      <% @latest_thoughts.each do |latest_thought| %>
+        <div class="w-5/6 lg:w-full px-4 py-2 bg-slate-200 text-gray-500 rounded-lg shadow-xl flex justify-start items-baseline space-x-3">
+        <h1 class="text-sm rounded hover:bg-gray-400"><%= link_to latest_thought.user.name, user_url(latest_thought.user) %></h1>
+        <h2 class="text-sm font-bold rounded hover:bg-gray-400"><%= link_to latest_thought.title, thought_path(latest_thought) %></h2>
       </div>
-      <div class="w-5/6 lg:w-full px-4 py-2 bg-slate-200 text-gray-500 rounded-lg shadow-xl flex justify-start items-baseline space-x-3">
-        <h1 class="text-sm font-bold">Shujaat</h1>
-        <h2 class="text-sm">Anthropology</h2>
-      </div>
-      <div class="w-5/6 lg:w-full px-4 py-2 bg-slate-200 text-gray-500 rounded-lg shadow-xl flex justify-start items-baseline space-x-3">
-        <h1 class="text-sm font-bold">John</h1>
-        <h2 class="text-sm">Nonenity</h2>
-      </div>
-      <div class="w-5/6 lg:w-full px-4 py-2 bg-slate-200 text-gray-500 rounded-lg shadow-xl flex justify-start items-baseline space-x-3">
-        <h1 class="text-sm font-bold">Syed Husain</h1>
-        <h2 class="text-sm">موجود بما هو موجود</h2>
-      </div>
-      <div class="w-5/6 lg:w-full px-4 py-2 bg-slate-200 text-gray-500 rounded-lg shadow-xl flex justify-start items-baseline space-x-3">
-        <h1 class="text-sm font-bold">Sheikh Alim</h1>
-        <h2 class="text-sm">Friendship</h2>
-      </div>
-      <div class="w-5/6 lg:w-full px-4 py-2 bg-blue-500 text-gray-50 rounded-lg shadow-xl flex justify-center items-center">
+      <% end %>
+      <div class="w-5/6 lg:w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 text-gray-50 rounded-lg shadow-xl flex justify-center items-center">
         <%= link_to "Share your thought", logged_in? ? user_path(current_user) : signin_url %>
       </div>
     </div>
