@@ -1,0 +1,14 @@
+<% provide(:title, "Thoughts") %>
+
+<div class="min-h-screen w-screen py-8">
+  <% @thoughts.each do |thought| %>
+    <div class="md:pl-48 flex flex-col items-start space-y-2">
+      <div class="w-full md:w-5/6 px-2 py-1 text-gray-800 antialiased">
+        <div class="px-2 py-1 text-gray-50 bg-gray-800 border-t-2 border-orange-300 opacity-75 flex justify-between">
+          <%= link_to thought.title, thought_path(thought) %>
+          <span class="text-sm italic"><%= link_to thought.user.name, user_url(thought.user) %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

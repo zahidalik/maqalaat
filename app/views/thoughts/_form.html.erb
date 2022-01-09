@@ -10,3 +10,7 @@
   <%= f.rich_text_area :content %>
   <%= f.submit yield(:button_text), class: "w-full text-white px-2 py-1 bg-green-700 shadow-xl rounded-lg hover:bg-green-800" %>
 <% end %>
+
+<%= turbo_frame_tag "flash" do %>
+  <%= render "thoughts/thought_flash" %>
+<% end %>

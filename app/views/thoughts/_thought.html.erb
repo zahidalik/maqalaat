@@ -3,4 +3,12 @@
     <%= thought.title %>
   <% end %>
   <%= link_to thought.user.name.truncate(10), user_path(thought.user), class: "text-sm text-white bg-blue-600 px-1" %>
+  <% if current_user == thought.user %>
+    <%= button_to user_thought_path(thought.user, thought) , 
+        class: "bg-red-500 px-1 rounded text-sm md:text-base text-gray-50 hover:bg-red-900", 
+        method: :delete,
+        form: {data: "You are going to delete your thought"} do %>
+          Delete
+    <% end %>
+  <% end %>
 <% end %>

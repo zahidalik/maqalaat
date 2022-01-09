@@ -1,9 +1,9 @@
 class ThoughtsController < ApplicationController
-  before_action :user_constraints, only: [:new, :create, :edit, :update]
-  before_action :set_thought, only: [:show, :edit, :update]
+  before_action :user_constraints, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_thought, only: [:show, :edit, :update, :destroy]
 
   def index
-    @thoughts = Thought.all.order(:created_at)
+    @thoughts = Thought.all.order(created_at: :desc)
   end
 
   def show
@@ -40,6 +40,15 @@ class ThoughtsController < ApplicationController
     else
       flash.now[:alert] = "Try again"
       render :new, status: :bad_request
+    end
+  end
+
+  def destroy
+    if @thought.delete
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to user_url(@thought.user), notice: "Thought deleted successfully" }
+      end
     end
   end
 
