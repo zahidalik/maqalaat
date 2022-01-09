@@ -23,12 +23,13 @@
     </div>
   <% end %>
     
-  <div class="pt-10 ml-8 md:ml-48 flex flex-col justify-center items-start space-y-3">
-    <%= turbo_stream_from "user_thoughts_list" %>
-    <%= turbo_frame_tag "user_thoughts" do %>
+  
+  <%= turbo_stream_from "user_thoughts_list" %>
+  <%= turbo_frame_tag "user_thoughts" do %>
+    <div class="pt-10 ml-8 md:ml-48 flex flex-col justify-center items-start space-y-3">  
       <% @user_thoughts.each do |user_thought| %>
-          <%= render "thoughts/thought", thought: user_thought %>
+        <%= render "thoughts/thought", thought: user_thought %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
