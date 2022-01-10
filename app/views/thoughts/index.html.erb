@@ -1,6 +1,9 @@
 <% provide(:title, "Thoughts") %>
 
 <div class="min-h-screen w-screen py-8">
+  <div class="flex flex-col justify-center items-center">
+    <%= render "thoughts/search_form" %>
+  </div>
   <% @thoughts.each do |thought| %>
     <div class="md:pl-48 flex flex-col items-start space-y-2">
       <div class="w-full md:w-5/6 px-2 py-1 text-gray-800 antialiased">

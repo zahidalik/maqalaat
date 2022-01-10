@@ -1,0 +1,8 @@
+<%= form_with url: search_thoughts_path, method: :post do |form| %>
+  <%= form.search_field :title_search, value: params[:title_search], 
+      placeholder: "Search thought",
+      class: "px-2 py-1 text-gray-600 border border-gray-400 rounded-xl focus:outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-400",
+      oninput: "this.form.requestSubmit()" %>
+<% end %>
+
+<div id="search_results"></div>

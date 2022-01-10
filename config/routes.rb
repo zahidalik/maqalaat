@@ -12,5 +12,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :thoughts
   end
-  resources :thoughts, only: [:show, :index]
+  resources :thoughts, only: [:show, :index] do
+    collection do
+      post :search
+    end
+  end
 end

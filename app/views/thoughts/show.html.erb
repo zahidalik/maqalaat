@@ -9,7 +9,7 @@
       <div class="px-2 py-1 text-gray-50 bg-gray-800 border-t-2 border-orange-300 opacity-75">
         <%= @thought.title %>
       </div>
-      <div class="py-2 px-2"><%= @thought.content %></div>
+      <div class="mb-4 py-2 px-2 bg-indigo-300 opacity-75"><%= @thought.content %></div>
       <% if current_user == @thought.user %>
         <%= link_to edit_user_thought_url(@thought.user, @thought), class: "px-3 py-2 bg-green-600 text-lg text-gray-50 rounded-lg hover:bg-green-700" do %>
           Edit

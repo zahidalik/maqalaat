@@ -6,6 +6,24 @@ class ThoughtsController < ApplicationController
     @thoughts = Thought.all.order(created_at: :desc)
   end
 
+  def search
+    if params.dig(:title_search).present?
+      @thoughts = Thought.where('title ILIKE ?', "%#{params[:title_search]}%").order(created_at: :desc)
+    else
+      @thoughts = []
+    end
+    
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: [
+          turbo_stream.update("search_results",
+          partial: "thoughts/search_results",
+          locals: { thoughts: @thoughts })
+        ]
+      end
+    end
+  end
+
   def show
   end
 
