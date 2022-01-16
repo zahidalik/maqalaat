@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_154013) do
+ActiveRecord::Schema.define(version: 2022_01_16_172603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 2022_01_08_154013) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "thought_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["thought_id"], name: "index_comments_on_thought_id"
+  end
+
   create_table "thoughts", force: :cascade do |t|
     t.string "related_to"
     t.string "title"
@@ -79,5 +87,6 @@ ActiveRecord::Schema.define(version: 2022_01_08_154013) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "thoughts"
   add_foreign_key "thoughts", "users"
 end

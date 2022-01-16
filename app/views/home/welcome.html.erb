@@ -10,9 +10,9 @@
     </div>
   </div>
 
-  <div class="w-screen md:w-2/3 h-auto flex flex-col justify-center space-y-1">
+  <div class="w-screen md:w-2/3 h-auto flex flex-col justify-center space-y-1 md:space-y-2">
     <div class="flex justify-center items-center">
-      <%= link_to "<i class='far fa-lightbulb text-2xl md:text-4xl text-green-600 py-4'></i>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
+      <%= link_to "<span class='text-xl md:text-3xl text-green-600 py-4'><i class='far fa-lightbulb'></i> New</span>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
     </div>
     <% @latest_thoughts.each do |latest_thought| %>
       <div class="bg-gray-50 border border-gray-200 rounded-lg px-2 py-1 shadow-lg">
@@ -36,7 +36,7 @@
           <% end %>
         </div>
         <div class="flex justify-around items-center">
-          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> 2</span>
+          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> <%= latest_thought.comments.count %></span>
           <% if current_user == latest_thought.user %>
             <%= link_to edit_user_thought_url(latest_thought.user, latest_thought), class: "text-sm md:text-base text-gray-500" do %>
               <i class="fas fa-edit"></i>
@@ -51,7 +51,7 @@
       </div>
     <% end %>
     <div class="flex justify-center items-center">
-      <%= link_to "<i class='far fa-lightbulb text-2xl md:text-4xl text-green-600 py-4'></i>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
+      <%= link_to "<span class='text-xl md:text-3xl text-green-600 py-4'><i class='far fa-lightbulb'></i> New</span>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
     </div>
   </div>
 </div>

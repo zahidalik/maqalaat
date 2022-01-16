@@ -1,0 +1,8 @@
+<%= turbo_stream.append("comments_list", @comment) %>
+<%= turbo_stream.update("comment_flash") do %>
+  <div class="pt-4 pl-4 flex justify-start items-center animate__animated animate__flipInX">
+    <%= link_to thought_path(@comment.thought), data: {"turbo_frame": "_top"}, class: "px-1 py-1 text-gray-50 bg-blue-700 rounded shadow-lg" do %>
+      <i class="fas fa-check"></i> Close
+    <% end %>
+  </div>
+<% end %>

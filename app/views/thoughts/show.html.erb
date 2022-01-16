@@ -21,8 +21,30 @@
           <%= @thought.content %>
         </div>
         <div class="flex justify-around items-center">
-          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> 2</span>
+          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> <%= @thought.comments.count %></span>
         </div>
+      </div>
+      <%= turbo_stream_from "comments_list" %>
+      <%= turbo_frame_tag "comments" do %>
+        <div class="w-10/12 h-auto ml-4 my-4 flex flex-col justify-center space-y-2">
+          <span class="text-xl text-gray-700 border-b border-gray-300">Comments:</span>
+          <% @thought_comments.each do |thought_comment| %>
+            <%= render "comments/comment", comment: thought_comment %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="ml-4">
+        <% if logged_in?  %>
+          <%= turbo_frame_tag "new_comment" do %>
+            <%= link_to new_thought_comment_path(@thought, @comment), class: "px-3 py-2 bg-blue-700 text-gray-50 text-sm md:text-lg hover:bg-blue-700" do %>
+              <i class="far fa-comment"></i> Comment
+           <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to signin_url, class: "px-3 py-2 bg-blue-700 text-gray-50 text-lg hover:bg-blue-700" do %>
+            <i class="far fa-comment"></i> Comment
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

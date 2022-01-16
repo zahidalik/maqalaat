@@ -6,7 +6,7 @@
   </div>
   <div class="w-screen md:w-2/3 h-auto flex flex-col justify-centerspace-y-1">
     <div class="mt-2 text-gray-700 flex justify-center items-center">
-      <%= link_to "<i class='far fa-lightbulb text-2xl md:text-4xl text-green-600 py-4'></i>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
+      <%= link_to "<span class='text-xl md:text-3xl text-green-600 py-4'><i class='far fa-lightbulb'></i> New</span>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
     </div>
     <% @thoughts.each do |thought| %>
       <div class="bg-gray-50 border border-gray-200 rounded-lg px-2 py-1 shadow-lg">
@@ -29,7 +29,7 @@
           <% end %>
         </div>
         <div class="flex justify-around items-center">
-          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> 2</span>
+          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> <%= thought.comments.count %></span>
           <% if current_user == thought.user %>
             <%= link_to edit_user_thought_url(thought.user, thought), class: "text-sm md:text-base text-gray-500" do %>
               <i class="fas fa-edit"></i>

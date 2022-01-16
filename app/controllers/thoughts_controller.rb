@@ -25,6 +25,7 @@ class ThoughtsController < ApplicationController
   end
 
   def show
+    @thought_comments = @thought.comments
   end
 
   def edit

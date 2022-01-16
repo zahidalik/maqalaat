@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :thoughts
   end
   resources :thoughts, only: [:show, :index] do
+    resources :comments, only: [:new, :create]
     collection do
       post :search
     end

@@ -7,7 +7,7 @@
       <span><i class="fas fa-question-circle"></i> About</span>
     <% end %>
     <%= link_to thoughts_url, class: "hidden md:block px-1 rounded-lg text-gray-700 hover:bg-gray-300" do %>
-      <span><i class="far fa-lightbulb"></i> Thoughts</span>
+      <span><i class="far fa-lightbulb"></i> All Thoughts</span>
     <% end %>
   </div>
   <% if logged_in? %>
@@ -35,6 +35,6 @@
     <i class="fas fa-question-circle"></i>
   <% end %>
   <%= link_to thoughts_url, class: "text-gray-700 text-sm px-1 rounded font-light hover:bg-gray-300" do %>
-    <i class="far fa-lightbulb"></i>
+    <i class="far fa-lightbulb"></i> All
   <% end %>
 </div>
