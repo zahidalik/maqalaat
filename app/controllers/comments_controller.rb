@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
   def create
     @thought = Thought.friendly.find(params[:thought_id])
     @comment = @thought.comments.build(comment_params)
+    @comment.commented_by = current_user.name
 
     if @comment.save
       respond_to do |format|
