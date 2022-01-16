@@ -4,7 +4,7 @@
 <%= turbo_frame_tag "new_thought" do %>
   <div class="flex flex-col justify-start items-center">
     <div class="mt-8 bg-gray-50 py-3 md:px-6 md:py-4 rounded-xl flex flex-col justify-center items-center space-y-7">  
-      <div class="text-xl md:text-3xl font-extralight">My new thought</div>
+      <div class="text-xl md:text-3xl font-light"><i class="far fa-lightbulb"></i> My new thought</div>
       <%= render "form", user: @user, thought: @thought%>
     </div>
   </div>

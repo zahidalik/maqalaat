@@ -1,9 +1,9 @@
 <% provide(:title, "Register") %>
 <% provide(:button_text, "Register me") %>
 
-<div class="min-h-screen flex flex-col justify-center items-center">
-  <div class="bg-gray-50 px-6 py-4 rounded-xl flex flex-col justify-center items-center space-y-7">
-    <div class="text-3xl font-extralight">Register</div>
+<div class="min-h-screen pt-8">
+  <div class="px-3 py-4 flex flex-col justify-center items-center space-y-7">
+    <div class="text-3xl text-gray-700 font-light"><i class="fas fa-user-plus"></i> Register</div>
     <%= render "form", user: @user%>
   </div>
 </div>

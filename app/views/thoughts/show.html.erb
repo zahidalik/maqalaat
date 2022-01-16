@@ -1,20 +1,30 @@
 <% provide(:title, @thought.title) %>
 
-<div class="min-h-screen w-screen">
-  <div class="py-8 md:pl-48 flex flex-col items-start space-y-2">
-    <div class="w-full md:w-5/6 px-2 py-1 text-gray-700 antialiased">
-      <div class="px-2 py-1 text-gray-50 bg-gray-800 opacity-75 rounded-t">
-        <%= link_to @thought.user.name, user_path(@thought.user)%>
-      </div>
-      <div class="px-2 py-1 text-gray-50 bg-gray-800 border-t-2 border-orange-300 opacity-75">
-        <%= @thought.title %>
-      </div>
-      <div class="mb-4 py-2 px-2 bg-indigo-300 opacity-75"><%= @thought.content %></div>
-      <% if current_user == @thought.user %>
-        <%= link_to edit_user_thought_url(@thought.user, @thought), class: "px-3 py-2 bg-green-600 text-lg text-gray-50 rounded-lg hover:bg-green-700" do %>
-          Edit
+<div class="min-h-screen flex flex-col">
+  <div class="py-4 md:pl-32 flex flex-col items-start space-y-2">
+    <div class="w-screen md:w-10/12 h-auto mt-8 flex flex-col justify-center space-y-1">
+      <div class="bg-gray-50 border border-gray-200 rounded-lg px-2 py-1 shadow-lg">
+        <%= link_to user_url(@thought.user), class: "w-full font-bold px-2 py-1 text-gray-700 flex flex-row justify-start items-center space-x-2" do %>
+          <% if @thought.user.avatar.present? %>
+            <div>
+              <%= image_tag @thought.user.avatar, class: "w-12 h-12 rounded-full" %>
+            </div>
+          <% else %>
+            <div class="w-12 h-12 bg-gray-400 rounded-full shadow-xl"></div>
+          <% end %>
+          <div class="">
+            <%= @thought.user.name %>
+          </div>
         <% end %>
-      <% end %>
+        <div class="pl-4 py-2 border rounded-lg border-gray-200">
+          <h1 class="font-bold"><%= @thought.title %></h1>
+          <%= @thought.content %>
+        </div>
+        <div class="flex justify-around items-center">
+          <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> 2</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+

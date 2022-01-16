@@ -1,40 +1,40 @@
-<div class="w-full h-12 md:h-16 bg-blue-500 flex justify-center md:justify-around items-center shadow-xl space-x-1 md:space-x-7">
+<div class="w-full h-12 md:h-16 bg-gray-100 flex justify-center md:justify-around items-center border-b border-gray-200 space-x-1 md:space-x-7">
   <div class="md:flex md:justify-center md:items-baseline md:space-x-4">
-    <%=link_to root_path, class: "text-xl md:text-2xl font-semibold text-gray-50" do %>
-      iShareThoughts
+    <%=link_to root_path, class: "text-xl md:text-2xl font-semibold text-gray-700" do %>
+      <span><i class="fas fa-home"></i> iShareThoughts</span>
     <% end %>
-    <%= link_to about_path, class: "hidden md:block text-gray-50 hover:border-b-2 hover:border-gray-50" do %>
-      About
+    <%= link_to about_path, class: "hidden md:block px-1 rounded-lg text-gray-700 hover:bg-gray-300" do %>
+      <span><i class="fas fa-question-circle"></i> About</span>
     <% end %>
-    <%= link_to thoughts_url, class: "hidden md:block text-gray-50 hover:border-b-2 hover:border-gray-50" do %>
-      Thoughts
+    <%= link_to thoughts_url, class: "hidden md:block px-1 rounded-lg text-gray-700 hover:bg-gray-300" do %>
+      <span><i class="far fa-lightbulb"></i> Thoughts</span>
     <% end %>
   </div>
   <% if logged_in? %>
     <div class="flex justify-center items-baseline space-x-1">
-      <%= link_to user_path(current_user), class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
-        <%= current_user.name.truncate(8) %>
+      <%= link_to user_path(current_user), class: "px-1 md:px-2 md:py-1 rounded text-sm md:text-base text-gray-700 hover:bg-gray-400" do %>
+        <i class="fas fa-user"></i>
       <% end %>
       <%= button_to signout_path , class: "px-1 md:px-2 md:py-1 bg-red-500 rounded text-sm md:text-base text-gray-50 hover:bg-red-900", method: :delete do %>
-        Sign out
+        <i class="fas fa-sign-out-alt"></i>
       <% end %>
     </div>
   <% else %>
     <div class="flex justify-center items-baseline space-x-1">
-      <%= link_to new_user_url, class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
+      <%= link_to new_user_url, class: "px-1 md:px-2 md:py-1 bg-gray-500 rounded text-sm md:text-base text-gray-50 hover:bg-gray-900" do %>
         Register
       <% end %>
-      <%= link_to signin_path, class: "px-1 md:px-2 md:py-1 bg-blue-800 rounded text-sm md:text-base text-gray-50 hover:bg-blue-900" do %>
-        Sign in
+      <%= link_to signin_path, class: "px-1 md:px-2 md:py-1 bg-green-600 rounded text-sm md:text-base text-gray-50 hover:bg-green-900" do %>
+        <i class="fas fa-sign-in-alt"></i>
       <% end %>
     </div>
   <% end %>
 </div>
-<div class="block md:hidden w-full h-8 bg-blue-500 flex justify-center items-center space-x-4">
-  <%= link_to about_path, class: "text-gray-50 text-sm font-light hover:border-b-2 hover:border-gray-50" do %>
-    About
+<div class="block md:hidden w-full h-8 bg-gray-100 border-b border-gray-200 flex justify-center items-center space-x-4">
+  <%= link_to about_path, class: "text-gray-700 text-sm px-1 rounded font-light hover:bg-gray-300" do %>
+    <i class="fas fa-question-circle"></i>
   <% end %>
-  <%= link_to thoughts_url, class: "text-gray-50 text-sm font-light hover:border-b-2 hover:border-gray-50" do %>
-    Thoughts
+  <%= link_to thoughts_url, class: "text-gray-700 text-sm px-1 rounded font-light hover:bg-gray-300" do %>
+    <i class="far fa-lightbulb"></i>
   <% end %>
 </div>

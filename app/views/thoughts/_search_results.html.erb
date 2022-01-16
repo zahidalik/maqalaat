@@ -1,12 +1,12 @@
-<span class="text-gray-50 bg-gray-800 opacity-75">
+<span class="text-gray-700 text-blue-700 font-bold">
   <% unless thoughts.empty? %>
-    <%= thoughts.count %>
+    results found:  <%= thoughts.count %>
   <% end %>
 </span>
 <% thoughts.each do |thought| %>
   <br>
-  <%= link_to thought, class: "text-gray-50 bg-gray-800 opacity-75 px-2 py-1 rounded" do %>
-    <%= highlight(thought.title, params.dig(:title_search)) %>
+  <%= link_to thought, class: "text-gray-700 px-2 font-bold" do %>
+    <i class="fas fa-link"></i> <%= highlight(thought.title, params.dig(:title_search)) %>
   <% end %>
 <% end %>
   
