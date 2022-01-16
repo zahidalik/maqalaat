@@ -4,7 +4,7 @@
   <div class="mt-8 flex flex-col justify-center items-center">
     <%= render "thoughts/search_form" %>
   </div>
-  <div class="w-screen md:w-2/3 h-auto flex flex-col justify-centerspace-y-1">
+  <div class="w-screen md:w-2/3 h-auto flex flex-col justify-center space-y-1">
     <div class="mt-2 text-gray-700 flex justify-center items-center">
       <%= link_to "<span class='text-xl md:text-3xl text-green-600 py-4'><i class='far fa-lightbulb'></i> New</span>".html_safe, logged_in? ? user_path(current_user) : signin_url %>
     </div>

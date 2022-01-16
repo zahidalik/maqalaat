@@ -12,20 +12,21 @@ class User < ApplicationRecord
   
   has_many :thoughts
   has_one_attached :avatar
-  validate :acceptable_avatar
+  # validate :acceptable_avatar
 
   has_secure_password
 
   private
 
-  def acceptable_avatar
-    unless avatar.byte_size <= 500.kilobyte
-      errors.add(:avatar, "should be less than 500 kilobytes")
-    end
-
-    acceptable_types = ["image/jpeg", "image/png"]
-    unless acceptable_types.include?(avatar.content_type)
-      errors.add(:avatar, "must be a JPEG or PNG")
-    end
-  end
+  # def acceptable_avatar
+  #   # if avatar
+  #   #   unless avatar.byte_size <= 500.kilobyte
+  #   #     errors.add(:avatar, "should be less than 500 kilobytes")
+  #   #   end
+  #   # end
+  #   acceptable_types = ["image/jpeg", "image/jpg", "image/png"]
+  #   unless acceptable_types.include?(avatar.content_type)
+  #     errors.add(:avatar, "must be a JPG, JPEG or PNG")
+  #   end
+  # end
 end

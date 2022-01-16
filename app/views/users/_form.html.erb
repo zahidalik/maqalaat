@@ -1,7 +1,7 @@
 <%= simple_form_for(user,
-  html: { class: "flex flex-col items-start space-y-4"},
+  html: { class: "w-2/3 flex flex-col justify-center items-center space-y-4"},
   defaults: {label_html: { class: "md:text-lg font-light text-gray-700" },
-  input_html: { class: "block md:inline-block px-8 md:ml-4 px-1 md:px-2 md:py-1 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300" },
+  input_html: { class: "block px-8 px-1 md:px-2 md:py-1 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300" },
   error_html: { class: "pl-2 block text-sm text-red-500"},
   hint_html: { class: "pl-2 block text-sm text-gray-400"} }) do |f| %>
   <%= f.input :name, placeholder: "first second last" %>
@@ -11,7 +11,7 @@
   <% if @user.avatar.present? %>
     <%= image_tag @user.avatar.variant(resize_to_limit: [50, 50]) %>
   <% end %>
-  <%= f.input :avatar %>
+  <span class="text-sm w-34 font-light text-gray-700">Avatar (JPG, JPEG, PNG. Please upload small size pics): <%= f.file_field :avatar %></span>
   <%= f.input :password, required: true, hint: "minimum 6 characters" %>
   <%= f.input :password_confirmation %>
   <%= f.submit yield(:button_text), class: "w-full text-white px-2 py-1 bg-green-700 shadow-xl rounded-lg hover:bg-green-800" %>

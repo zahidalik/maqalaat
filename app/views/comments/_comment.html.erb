@@ -1,5 +1,7 @@
 <%= turbo_frame_tag(dom_id(comment)) do %>
   <div class="text-gray-700 font-light text-lg border-l-4 border-gray-400 pl-2 ml-2">
-    <%= comment.content %>
+    <div class="flex justify-between items-baseline">
+      <span class="text-lg"><%= comment.content %></span> <span class="text-sm"><%= comment.thought.user.name %></span>
+    </div>
   </div>
 <% end %>
