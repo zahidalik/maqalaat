@@ -1,8 +1,8 @@
 <%= turbo_stream.prepend("user_thoughts", @thought) %>
-<%= turbo_stream.update("flash") do %>
+<%= turbo_stream.replace("new_thought") do %>
   <div class="flex justify-center items-center animate__animated animate__flipInX">
-    <%= link_to user_path(@thought.user), data: {"turbo_frame": "_top"}, class: "mt-2 px-1 py-1 text-gray-50 bg-blue-700 rounded shadow-lg" do %>
-      <i class="fas fa-check"></i> Close
+    <%= link_to user_path(@thought.user), data: {"turbo_frame": "_top"}, class: "mt-2 px-2 py-1 text-gray-50 bg-blue-700 rounded shadow-lg" do %>
+      Shared. Continue? <i class="fas fa-hand-point-up"></i>
     <% end %>
   </div>
 <% end %>

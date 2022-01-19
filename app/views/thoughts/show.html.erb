@@ -12,8 +12,11 @@
           <% else %>
             <div class="w-12 h-12 bg-gray-400 rounded-full shadow-xl"></div>
           <% end %>
-          <div class="">
+          <div>
             <%= @thought.user.name %>
+            <div class="text-sm">
+              <span class="font-extralight"><%= time_ago_in_words(@thought.created_at) %></span>
+            </div>
           </div>
         <% end %>
         <div class="pl-4 py-2 border rounded-lg border-gray-200">
@@ -22,6 +25,11 @@
         </div>
         <div class="flex justify-around items-center">
           <span class="text-gray-500 text-sm md:text-base"><i class="far fa-comment"></i> <%= @thought.comments.count %></span>
+          <% if current_user == @thought.user %>
+            <%= link_to edit_user_thought_url(@thought.user, @thought), data: {"turbo_frame": "_top"}, class: "text-sm md:text-base text-gray-500" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <%= turbo_stream_from "comments_list" %>

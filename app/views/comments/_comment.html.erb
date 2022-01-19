@@ -1,7 +1,11 @@
 <%= turbo_frame_tag(dom_id(comment)) do %>
-  <div class="text-gray-700 font-light text-lg border-l-4 border-gray-400 pl-2 ml-2">
-    <div class="flex justify-between items-baseline">
-      <span class="text-lg"><%= comment.content %></span> <span class="text-sm"><%= comment.commented_by %></span>
+  <div class="text-gray-700 font-light text-lg border border-l-4 border-gray-400 px-2 py-1 rounded ml-2">
+    <div class="">
+      <div class="text-lg"><%= comment.content %></div> 
+      <div class="flex flex-col items-end text-sm">
+        <div><%= comment.commented_by %></div>
+        <div><%= time_ago_in_words(comment.created_at) %></div>
+      </div>
     </div>
   </div>
 <% end %>

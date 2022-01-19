@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_thoughts = @user.thoughts.order(:created_at)
+    @user_thoughts = @user.thoughts.order(created_at: :desc)
   end
 
   def edit

@@ -1,6 +1,7 @@
 class ThoughtsController < ApplicationController
   before_action :user_constraints, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_thought, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show]
 
   def index
     @thoughts = Thought.all.order(created_at: :desc)
