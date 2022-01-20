@@ -15,9 +15,9 @@
       </div>
     </div>
   <% end %>
-  <div class="pl-4 py-2 border rounded-lg border-gray-200">
+  <div class="px-3 py-2 border text-gray-700 rounded-lg border-gray-200">
     <%= link_to thought_path(thought), data: {"turbo_frame": "_top"} do %>
-      <h1 class="font-bold"><%= thought.title %></h1>
+      <h1 class="pb-2 font-bold"><%= thought.title %></h1>
       <%= thought.content %>
     <% end %>
   </div> 
