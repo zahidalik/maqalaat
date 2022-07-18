@@ -36,7 +36,7 @@
   <% end %>
     
   
-  <%= turbo_stream_from "user_thoughts_list" %>
+  <%# <%= turbo_stream_from "user_thoughts_list" %>
   <%= turbo_frame_tag "user_thoughts" do %>
     <div class="w-screen md:w-10/12 md:pl-32 h-auto mt-8 flex flex-col justify-center space-y-1">  
       <% @user_thoughts.each do |user_thought| %>

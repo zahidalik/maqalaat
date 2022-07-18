@@ -1,8 +1,6 @@
-<%= turbo_stream.prepend("user_thoughts", @thought) %>
+<%# <%= turbo_stream.prepend("user_thoughts", @thought) %>
 <%= turbo_stream.replace("new_thought") do %>
-  <div class="flex justify-center items-center animate__animated animate__flipInX">
-    <%= link_to user_path(@thought.user), data: {"turbo_frame": "_top"}, class: "mt-2 px-2 py-1 text-gray-50 bg-blue-700 rounded shadow-lg" do %>
-      Shared. Continue? <i class="fas fa-hand-point-up"></i>
-    <% end %>
+  <div class="w-screen md:w-10/12 md:pl-32 h-auto mt-8 flex flex-col justify-center space-y-1">  
+    <%= render "thoughts/thought", thought: @thought %>
   </div>
 <% end %>
