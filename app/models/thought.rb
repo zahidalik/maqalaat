@@ -10,5 +10,5 @@ class Thought < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  # after_create_commit { broadcast_prepend_to("user_thoughts_list")}
+  after_create_commit { broadcast_prepend_to("user_thoughts_list")}
 end

@@ -1,6 +1,4 @@
-<%# <%= turbo_stream.prepend("user_thoughts", @thought) %>
-<%= turbo_stream.replace("new_thought") do %>
-  <div class="w-screen md:w-10/12 md:pl-32 h-auto mt-8 flex flex-col justify-center space-y-1">  
-    <%= render "thoughts/thought", thought: @thought %>
-  </div>
+<%= turbo_stream.prepend("user_thoughts", @thought) %>
+
+<%= turbo_stream.update("new_thought") do %>
 <% end %>
